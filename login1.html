@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" >
+    <title>Document</title>
+
+</head>
+<body>
+<style>
+    label{
+        color: brown;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 2em;
+        font-weight: bolder;
+    }
+    h1{
+        color: blue;
+        font-size: 3em;
+        font-weight: bolder;
+    }
+</style>
+        
+<form id='Student_Form';style="text-align: center ;" >
+    <h1> Login Page</h1>
+    <label for="">Enter Email ID</label>
+    <input type="text" required>
+    <br>
+    <br>
+    <label for="">Enter Password</label>
+    <input type="password" required>
+    <br>
+    <br>
+    <button onclick="">Submit  </button>
+    </form>
+    <script>
+            var form = document.getElementById('Student_Form'); // Corrected the ID case
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Form Submitted');
+                form.reset();
+            });
+    </script>
+        
+</body>
+</html>
