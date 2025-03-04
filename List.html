@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Maker</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        input[type="text"] {
+            width: 500px;
+            padding: 40px;
+            color:white ;
+            background-color: rgb(219, 63, 63);
+            text-align: center;
+        }
+        button{
+            color: rgb(3, 218, 207);
+            background-color: black;
+            height: 5em;
+            width: 6em;
+            font-size: 1em;
+            font-weight: bolder;
+        }
+        h2{
+            font-size: 5em;
+        }
+    </style>
+</head>
+<body>
+    <h2 >List Generator</h2>
+    <input type="text" id="inputText" placeholder="Enter text here" height="100px" width="250px"><br>
+    <br>
+    <button onclick="addItem()" >Add</button>
+    <button onclick="clearList()">Clear</button>
+    <ul id="itemList"></ul>
+    
+    <script>
+        function addItem() {
+            var input = document.getElementById("inputText");
+            var text = input.value.trim();
+            if (text !== "") {
+                var list = document.getElementById("itemList");
+                var listItem = document.createElement("li");
+                listItem.textContent = text;
+                list.appendChild(listItem);
+                input.value = ""; 
+            }
+        }
+        
+        function clearList() {
+            document.getElementById("itemList").innerHTML = "";
+        }
+    </script>
+</body>
+</html>
