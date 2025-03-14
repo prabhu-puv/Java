@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Weather of Anekal
+    </h1>
+
+    <form>
+        <input type="search" id ="city" placeholder="Enter the city" required >
+        <button type="submit" onclick="weather(event)">Search</button>
+    </form>
+    <div>
+        <p id="cityName"></p>
+        <p>Temp:<span id="temp"></span></p>
+        <p>temp max<span id ="tempmax"></span></p>
+        <p>temp min<span id ="tempmin"></span></p>
+    </div>
+    <script>
+        const api={
+            base:"https://api.openweathermap.org/data/2.5/weather?q=",
+            key:"2aa531b316dee36fbeb7de186a483e50"
+        }
+        const form =document.querySelector('form');
+        const city =document.getElementById('city');
+        function weather(event){
+            event.preventDefault();
+            var cityName=city.value;
+       
+            fetch(`${api.base}${cityName}&appid=${api.key}`)
+            .then(data=>data.json())
+            .then(data=>showWeather(data))
+            function showWeather(data){
+                console.log(data)
+                document.getElementById('cityName').textContent=data.name;
+                document.getElementById('temp').textContent=data.main.temp;
+                document.getElementById('tempmax').textContent=data.main.temp_max;
+                document.getElementById('tempmin').textContent=data.main.temp_min;
+
+            }
+        }
+    </script>
+</body>
+</html>
